@@ -1,4 +1,4 @@
-🥁 Drum notes
+🥁 Drum Notes </
 
 📋 Sobre o projeto
 
