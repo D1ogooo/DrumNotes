@@ -9,8 +9,6 @@ function checkToken(req, res, next) {
     return res.status(401).json({ message: "Acesso negado" });
   }
 
-  console.log('Token recebido:', token);
-
   try {
     const secret = jwtConfig.secret;
     if (!secret) {
@@ -19,7 +17,6 @@ function checkToken(req, res, next) {
     jwt.verify(token, secret);
     next();
   } catch (error) {
-    console.error('Erro ao verificar o token:', error);
     res.status(400).json({ message: "Token inválido", error: error.message });
   }
 }

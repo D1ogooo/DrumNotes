@@ -9,6 +9,6 @@ if (!SECRET) {
 module.exports = {
   jwt: {
     secret: SECRET,
-    expiresIn: '1h',
+    expiresIn: '1d',
   }
 };
