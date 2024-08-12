@@ -1,9 +1,12 @@
 import { useAuth } from "../../Hooks/useAuth";
-import { FaGithub } from "react-icons/fa";
+
 import { GiDrum } from "react-icons/gi";
 import { FaInstagram } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { LogOut } from "lucide-react";
+import githubIcon from '../../assets/icon_github.svg'
+import instagramIcon from '../../assets/icon_instagram.svg'
+import exitIcon from '../../assets/exitIcon.svg'
 
 export const Header = () => {
   const { loggout } = useAuth()
@@ -17,9 +20,13 @@ export const Header = () => {
            <p className="absolute px-9 py-[.5rem] font-sans font-[500] text-xl text-[#fff]">Drum <span>Notes</span></p>
           </Link>
           <div className="flex gap-4 py-[.4rem]">
-           <FaInstagram size={35} color="#fff" style={{ cursor: 'pointer' }} />
-           <FaGithub size={35} color="#fff" style={{ cursor: 'pointer' }} />
-           <LogOut size={35} color="#fff" onClick={() => loggout()} className="cursor-pointer"/>
+           <a href="https://github.com/D1ogooo" target='_blank'>
+            <img src={githubIcon} alt="" className="cursor-pointer h-8"/>
+           </a>
+           <a href="https://www.instagram.com/diogoo_0202/" target='_blank'>
+            <img src={instagramIcon} alt="" className="cursor-pointer h-8"/>
+           </a>
+            <img src={exitIcon} alt=""  onClick={() => loggout()} className="cursor-pointer h-8"/>
           </div>
         </div>
       </header>
