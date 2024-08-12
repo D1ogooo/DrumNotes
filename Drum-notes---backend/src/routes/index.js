@@ -1,0 +1,14 @@
+const express = require('express');
+const router = express.Router();
+const NotesController = require('../controller/notesController');
+const UsersController = require('../controller/userController');
+const upload = require('../config/multerConfig');
+const checkToken = require('../middleware/checkToken');
+
+router.post('/notes/create', upload.single('image'), checkToken, NotesController.create); // Criar nota
+router.get('/notes', checkToken, NotesController.getAll); // Obter todas as notas do usuário
+
+router.post('/users/create', UsersController.create); // Criar usuário
+router.post('/users/auth', UsersController.auth); // Fazer login
+
+module.exports = router;
