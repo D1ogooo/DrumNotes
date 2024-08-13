@@ -5,8 +5,8 @@ import { Delete } from '../Delete';
 import { Link } from 'react-router-dom';
 
 interface CardItemProps {
- notes: Note[];
- handleDelete: (id: string) => void;
+  notes: Note[];
+  handleDelete: (id: string) => void;
 }
 
 export const CardItem: React.FC<CardItemProps> = ({ notes, handleDelete }) => {
@@ -14,25 +14,32 @@ export const CardItem: React.FC<CardItemProps> = ({ notes, handleDelete }) => {
     <>
       {notes.length > 0 ? (
         notes.map((card) => (
-          <Card key={card._id} maxW='sm' className="bg-background-card h-auto w-[20rem] rounded-[10px] p-[.7rem]">
-            <CardBody>
+           <Card key={card._id} className="bg-background-card rounded-[10px] " boxSize='23rem' >
+            <div className='cursor-pointer relative mt-2 ml-2' onClick={() => handleDelete(card._id)}>
+             <Delete size={38} color="#9d9b9b56"/>
+            </div>
+            <CardBody className='w-full'>
               <Link to={`/details/${card._id}`} className="block">
-               <Image
-                src={`http://localhost:3000${card.image.replace('\\', '/')}`}
-                alt={card.title}
-                borderRadius='lg'
-                fallbackSrc="https://via.placeholder.com/150"
-               />
+              <Image
+               src={`http://localhost:3000${card.image.replace('\\', '/')}`}
+               alt={card.titulo}
+               className='h-[11rem] w-full mt-[-3rem] rounded-sm'
+               fallbackSrc="https://via.placeholder.com/150"
+               objectFit='cover'
+              />
               </Link>
-              <Stack mt='6' spacing='3'>
-               <Heading size='md'>{card.title}</Heading>
-               <Text>{card.conteudo}</Text>
+              <Stack mt='6' spacing='3' className='w-full text-center h-auto'>
+                <Heading size='md' className='text-center'>{card.titulo}</Heading>
+                <Text
+                  className='text-center'
+                  overflowY='auto'
+                  maxHeight='84px'
+                >
+                  {card.conteudo}
+                </Text>
               </Stack>
             </CardBody>
-            <Divider />
-            <div className='fixed cursor-pointer' onClick={() => handleDelete(card._id)}>
-             <Delete size={27} color="#fff"/>
-            </div>
+            <Divider width={`98%`} m={'.125rem'} mx={'auto'}/>
           </Card>
         ))
       ) : (

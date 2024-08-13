@@ -28,5 +28,5 @@ export interface Note {
  conteudo: string;
  image: string;
  link: string;
- title: string;
+ titulo: string;
 } 

@@ -1,6 +1,7 @@
+const fs = require('fs');
+const path = require('path');
 const Note = require('../model/NotesModel');
 const jwt = require('jsonwebtoken');
-const path = require('path');
 require('dotenv').config();
 
 class NotesController {
@@ -59,7 +60,6 @@ class NotesController {
       const userId = decoded.id;
 
       const notes = await Note.find({ user: userId });
-      console.log(notes)
       res.status(200).json(notes);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -85,8 +85,16 @@ class NotesController {
       }
 
       const note = await Note.findOne({ _id: noteId, user: userId });
+
       if (!note) {
         return res.status(404).json({ message: 'Nota não encontrada' });
+      }
+
+      if (note.image) {
+        const filePath = path.join(__dirname, '../uploads', path.basename(note.image));
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
+        }
       }
 
       await Note.deleteOne({ _id: noteId });
@@ -117,7 +125,6 @@ class NotesController {
       res.status(500).json({ message: error.message });
     }
   }
-
 }
 
 module.exports = new NotesController();
