@@ -14,7 +14,6 @@ class NotesController {
         image = `/uploads/${imageName}`;
       }
 
-
       if (!image) {
         return res.status(400).json({ message: 'Imagem não enviada.' });
       }
@@ -94,6 +93,27 @@ class NotesController {
       res.status(200).json({ message: 'Nota deletada com sucesso' });
     } catch (error) {
       console.error('Erro ao excluir nota:', error);
+      res.status(500).json({ message: error.message });
+    }
+  }
+
+  async getUser(req, res) {
+    try {
+      const authHeader = req.headers['authorization'];
+      const token = authHeader && authHeader.split(' ')[1];
+      const secret = process.env.SECRET_KEY;
+
+      if (!token) {
+        return res.status(401).json({ message: 'Não autorizado' });
+      }
+
+      const decoded = jwt.verify(token, secret);
+      const userId = decoded.id;
+
+      const notes = await Note.find({ user: userId });
+      console.log(notes)
+      res.status(200).json(notes);
+    } catch (error) {
       res.status(500).json({ message: error.message });
     }
   }

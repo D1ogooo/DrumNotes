@@ -22,3 +22,11 @@ export interface AuthData {
   };
   token?: string;
 }
+
+export interface Note {
+ _id: string;
+ conteudo: string;
+ image: string;
+ link: string;
+ title: string;
+} 

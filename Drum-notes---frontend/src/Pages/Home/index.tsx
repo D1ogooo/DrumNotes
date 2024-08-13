@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { CardItem } from '../../component/Card/index';
 import { AdicionarConteudo } from '../../component/AdicionarConteudo/index';
 import { api } from '../../services/api';
-import { useNavigate } from 'react-router-dom';
 
 interface Note {
   _id: string;
@@ -14,7 +13,6 @@ interface Note {
 
 function Home() {
   const [notes, setNotes] = useState<Note[]>([]);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     const fetchNotes = async () => {

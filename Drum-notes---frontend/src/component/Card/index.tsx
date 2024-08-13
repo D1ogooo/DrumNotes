@@ -1,19 +1,12 @@
 import React from 'react';
 import { Card, CardBody, Stack, Image, Heading, Text, Divider } from '@chakra-ui/react';
+import type { Note } from '../../@types/tipages';
 import { Delete } from '../Delete';
 import { Link } from 'react-router-dom';
 
-interface Note {
-  _id: string;
-  conteudo: string;
-  image: string;
-  link: string;
-  title: string;
-}
-
 interface CardItemProps {
-  notes: Note[];
-  handleDelete: (id: string) => void;
+ notes: Note[];
+ handleDelete: (id: string) => void;
 }
 
 export const CardItem: React.FC<CardItemProps> = ({ notes, handleDelete }) => {
@@ -32,13 +25,13 @@ export const CardItem: React.FC<CardItemProps> = ({ notes, handleDelete }) => {
                />
               </Link>
               <Stack mt='6' spacing='3'>
-                <Heading size='md'>{card.title}</Heading>
-                <Text>{card.conteudo}</Text>
+               <Heading size='md'>{card.title}</Heading>
+               <Text>{card.conteudo}</Text>
               </Stack>
             </CardBody>
             <Divider />
             <div className='fixed cursor-pointer' onClick={() => handleDelete(card._id)}>
-              <Delete size={27} color="#fff"/>
+             <Delete size={27} color="#fff"/>
             </div>
           </Card>
         ))
