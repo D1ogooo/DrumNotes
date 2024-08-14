@@ -19,7 +19,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 
   async function register(nome: string, email: string, password: string) {
     try {
-      const response = await api.post('/users/create', {
+      await api.post('/users/create', {
         nome,
         email,
         password,

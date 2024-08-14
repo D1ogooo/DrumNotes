@@ -51,7 +51,7 @@ export const CardItem: React.FC<CardItemProps> = ({ notes, handleDelete }) => {
             <CardBody className='w-full'>
               <Link to={`/details/${card._id}`} className="block">
               <Image
-               src={`http://localhost:3000${card.image.replace('\\', '/')}`}
+               src={`https://drumnotes-backend-1.onrender.com${card.image.replace('\\', '/')}`}
                alt={card.titulo}
                className='h-[11rem] w-full mt-[-3rem] rounded-sm'
                fallbackSrc="https://via.placeholder.com/150"

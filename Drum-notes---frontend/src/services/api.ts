@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://drumnotes-backend-1.onrender.com',
 });
 
 api.interceptors.request.use(

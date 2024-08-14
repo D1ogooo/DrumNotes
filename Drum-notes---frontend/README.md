@@ -13,4 +13,6 @@ normalmente existe uma vasta quantidade de conte√∫dos do instrumento por ai ent√
 - Typescript
 - TailwindCSS
 - React-router-dom
+- Chackra-ui
+- Axios
 ```
