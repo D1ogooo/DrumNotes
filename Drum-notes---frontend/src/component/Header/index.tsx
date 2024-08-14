@@ -11,6 +11,10 @@ import exitIcon from '../../assets/exitIcon.svg'
 export const Header = () => {
   const { loggout } = useAuth()
 
+  function handleLoggout () {
+    loggout()
+  }
+
   return (
     <>
       <header className="bg-custom-dark w-full h-[3.5rem]">
@@ -26,7 +30,7 @@ export const Header = () => {
            <a href="https://www.instagram.com/diogoo_0202/" target='_blank'>
             <img src={instagramIcon} alt="" className="cursor-pointer h-8"/>
            </a>
-            <img src={exitIcon} alt=""  onClick={() => loggout()} className="cursor-pointer h-8"/>
+            <img src={exitIcon} alt=""  onClick={handleLoggout} className="cursor-pointer h-8"/>
           </div>
         </div>
       </header>

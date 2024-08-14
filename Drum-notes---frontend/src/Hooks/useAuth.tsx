@@ -44,17 +44,17 @@ function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
-  function loggout() {
-    localStorage.removeItem("@DrumNotes:user");
-    localStorage.removeItem("@DrumNotes:token");
-    api.defaults.headers.authorization = '';
-    setData({});
+  async function loggout() {
+   localStorage.removeItem("@DrumNotes:user");
+   localStorage.removeItem("@DrumNotes:token");
+   api.defaults.headers.authorization = '';
+   setData({});
   }
 
   return (
-    <AuthContext.Provider value={{ register, login, user: data.user, token: data.token, loggout }}>
-      {children}
-    </AuthContext.Provider>
+   <AuthContext.Provider value={{ register, login, user: data.user, token: data.token, loggout }}>
+    {children}
+   </AuthContext.Provider>
   );
 }
 

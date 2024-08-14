@@ -33,7 +33,7 @@ export const CardItem: React.FC<CardItemProps> = ({ notes, handleDelete }) => {
                 <Text
                   className='text-center'
                   overflowY='auto'
-                  maxHeight='84px'
+                  maxHeight='5.25rem'
                 >
                   {card.conteudo}
                 </Text>

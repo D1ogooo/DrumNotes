@@ -10,6 +10,7 @@ router.post('/notes/create', upload.single('image'), checkToken, NotesController
 router.get('/notes/show', checkToken, NotesController.getAll); // Obter todas as notas do usuário
 router.get('/notes/show/user_expecifi/:id', checkToken, NotesController.getUser); // Obter todas as notas do usuário expecifico
 
+router.put('/notes/update/:id', checkToken, NotesController.update);
 router.delete('/notes/delete/:id', checkToken, NotesController.delete); // Deletar nota
 
 router.post('/users/create', UsersController.create); // Criar usuário

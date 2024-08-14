@@ -119,7 +119,27 @@ class NotesController {
       const userId = decoded.id;
 
       const notes = await Note.find({ user: userId });
-      console.log(notes)
+      res.status(200).json(notes);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
+  async update(req, res) {
+    try {
+      const NovoTitulo = req.body.titulo
+      const NovoLink = req.body.link
+      const NovoConteudo = req.body.conteudo
+      const noteId = req.params.id;
+
+      const notes = await Note.findByIdAndUpdate(noteId,
+        {
+          titulo: NovoTitulo,
+          link: NovoLink,
+          conteudo: NovoConteudo,
+        },
+        { new: true }
+      )
       res.status(200).json(notes);
     } catch (error) {
       res.status(500).json({ message: error.message });

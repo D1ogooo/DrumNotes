@@ -13,8 +13,8 @@ export function AppRoutes() {
      <Route path='/' element={<Home/>}/>
      <Route path='/details/:id' element={<Detail/>}/>
      <Route path='/createNew' element={<NewNote/>}/>
-    <Route path="*" element={<Pagina_404/>}/>
     </Route>
+    <Route path="*" element={<Pagina_404/>}/>
    </Routes>
   </>
  )

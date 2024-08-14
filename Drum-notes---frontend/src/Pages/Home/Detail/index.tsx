@@ -48,8 +48,11 @@ export const Detail = () => {
   const handleSubmit = async () => {
     if (id) {
       try {
-        await api.put(`/notes/update/${id}`, editForm);
-        navigate('/');
+        await api.put(`/notes/update/${id}`, editForm)
+        .then((res) => {
+          console.log('Nota atualizada com sucesso:', res.data);
+          window.location.reload();
+        })
       } catch (error) {
         console.error('Erro ao atualizar a nota:', error);
       }
