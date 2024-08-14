@@ -10,8 +10,8 @@ export const Delete: React.FC<Props> = ({ size, color }) => {
     <img
       src={LixoIcon}
       style={{
-       width: size, height: size, backgroundColor: color, border: 'solid .12px #00000039', marginLeft: '.3125rem', marginTop: '.3125rem',
-       borderRadius: '40%', padding: '5px'
+       width: size, height: size, backgroundColor: color, border: 'solid .0075rem #00000039', marginLeft: '.3125rem', marginTop: '.3125rem',
+       borderRadius: '40%', padding: '.3125rem'
       }}
       alt="Delete Icon"
     />
