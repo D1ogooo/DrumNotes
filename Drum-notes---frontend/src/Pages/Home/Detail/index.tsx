@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { api } from '../../../services/api';
 import { Note } from '../../../@types/tipages';
 
@@ -7,7 +7,6 @@ export const Detail = () => {
   const [data, setData] = useState<Note | null>(null);
   const [editForm, setEditForm] = useState<Partial<Note>>({});
   const { id } = useParams<string>();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {

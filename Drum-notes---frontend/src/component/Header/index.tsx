@@ -1,9 +1,7 @@
 import { useAuth } from "../../Hooks/useAuth";
 
 import { GiDrum } from "react-icons/gi";
-import { FaInstagram } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { LogOut } from "lucide-react";
 import githubIcon from '../../assets/icon_github.svg'
 import instagramIcon from '../../assets/icon_instagram.svg'
 import exitIcon from '../../assets/exitIcon.svg'

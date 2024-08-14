@@ -26,7 +26,7 @@ function NewNote() {
     }
 
     try {
-      const response = await api.post('/notes/create', formData, {
+      await api.post('/notes/create', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
