@@ -13,7 +13,7 @@ function Home() {
         const response = await api.get('/notes/show');
         setNotes(response.data);
       } catch (error) {
-        console.error("Erro ao buscar notas:", error);
+        console.error("Erro ao buscar notas");
       }
     };
 
@@ -22,11 +22,10 @@ function Home() {
 
   async function handleDelete(cardId: string) {
   if (!cardId) {
-    console.error('ID inválido:', cardId);
+    console.error('ID inválido');
   }
 
   try {
-    console.log(`ID recebido para deletar: ${cardId}`);
     await api.delete(`/notes/delete/${cardId}`);
     window.location.reload();
   } catch (error) {
