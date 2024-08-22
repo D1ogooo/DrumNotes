@@ -4,6 +4,14 @@ export interface AuthProviderProps {
   children: ReactNode;
 }
 
+export interface Note {
+  _id: string;
+  conteudo: string;
+  image: string;
+  link: string;
+  title: string;
+}
+
 export interface AuthContextType {
   register: (nome: string, email: string, password: string) => void;
   login: (email: string, password: string) => Promise<void>;

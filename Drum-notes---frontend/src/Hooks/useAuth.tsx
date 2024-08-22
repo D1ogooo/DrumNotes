@@ -10,7 +10,7 @@ function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
    const user = localStorage.getItem("@DrumNotes:user");
    const token = localStorage.getItem("@DrumNotes:token");
-    
+     
    if (user && token) {
     setData({ user: JSON.parse(user), token });
     api.defaults.headers.authorization = `Bearer ${token}`;

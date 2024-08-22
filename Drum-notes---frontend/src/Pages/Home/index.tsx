@@ -2,14 +2,7 @@ import { useEffect, useState } from 'react';
 import { CardItem } from '../../component/Card/index';
 import { AdicionarConteudo } from '../../component/AdicionarConteudo/index';
 import { api } from '../../services/api';
-
-interface Note {
-  _id: string;
-  conteudo: string;
-  image: string;
-  link: string;
-  title: string;
-}
+import type { Note } from '../../@types/tipages';
 
 function Home() {
   const [notes, setNotes] = useState<Note[]>([]);
