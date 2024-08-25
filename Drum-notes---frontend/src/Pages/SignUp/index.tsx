@@ -14,7 +14,7 @@ function SignUp() {
   const [password, setPassword] = useState<string>('')
   const [confirmPassword, setConfirmPassword] = useState<string>('')
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!nome || !email || !password || !confirmPassword) {
      return toast({
@@ -34,7 +34,7 @@ function SignUp() {
       isClosable: true,
      })
     }
-    register(nome, email, password);
+    await register(nome, email, password);
     navigate('/')
   }
 

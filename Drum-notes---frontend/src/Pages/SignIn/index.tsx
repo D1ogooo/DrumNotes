@@ -1,20 +1,23 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Spinner } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import TecladoImage from '../../assets/homem-de-alto-angulo-tocando-piano-no-estudio.jpg'
 import { Lock, Mail } from 'lucide-react'
 import { useAuth } from '../../Hooks/useAuth'
 
 function SignIn() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const navigate = useNavigate()
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [spinner, setSpinner] = useState<boolean>(false)
   const { login } = useAuth()
 
   function handleSubmit (e: React.FormEvent) {
    e.preventDefault()
-   
    login(email, password)
-   navigate('/')
+   setSpinner(true)
+   setTimeout(() => {
+    setSpinner(false)
+   }, 3000)
   }
 
   return (
@@ -35,7 +38,14 @@ function SignIn() {
          <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Declare sua senha..." className="border w-full py-2 px-10 rounded-md focus:outline-none focus:ring-primary-500"/>
        </div>
        <p>Não possui uma conta?<Link className='text-red-600' to='/register'>Click aqui</Link></p>
-       <button type="submit" className="bg-primary-500 text-black py-2 px-4 rounded-md hover:bg-primary-700 font-medium" onClick={handleSubmit}>Entrar</button>
+       <button type="submit" className="bg-primary-500 text-black py-2 px-4 rounded-md hover:bg-primary-700 font-medium" onClick={handleSubmit}>{spinner ? 
+       <Spinner
+        thickness='.25rem'
+        speed='0.65s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='lg'
+       /> : 'Entrar'}</button>
       </form>
      </section>
     </div>
@@ -44,3 +54,10 @@ function SignIn() {
 }
 
 export default SignIn
+{/* <Spinner
+  thickness='4px'
+  speed='0.65s'
+  emptyColor='gray.200'
+  color='blue.500'
+  size='xl'
+/> */}
