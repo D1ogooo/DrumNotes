@@ -6,11 +6,11 @@ import { Router } from './routes';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
- <React.StrictMode>
-  <ChakraProvider>
-   <AuthProvider>
-    <Router/>
-   </AuthProvider>
+  <React.StrictMode>
+   <ChakraProvider>
+    <AuthProvider>
+     <Router/>
+    </AuthProvider>
   </ChakraProvider>
  </React.StrictMode>,
 );

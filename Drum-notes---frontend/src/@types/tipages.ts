@@ -31,10 +31,9 @@ export interface AuthData {
   token?: string;
 }
 
-export interface Note {
- _id: string;
- conteudo: string;
- image: string;
- link: string;
- titulo: string;
-} 
+export interface AlertType {
+ title: string;
+ description: string;
+ status: "success" | "error" | "warning" | "info";
+}
+

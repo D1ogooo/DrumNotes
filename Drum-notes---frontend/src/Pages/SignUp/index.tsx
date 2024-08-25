@@ -3,10 +3,12 @@ import { useAuth } from '../../Hooks/useAuth'
 import { Link, useNavigate } from 'react-router-dom'
 import { Mail, Lock, User } from 'lucide-react'
 import TecladoImage from '../../assets/homem-de-alto-angulo-tocando-piano-no-estudio.jpg'
+import { useToast } from '@chakra-ui/toast'
 
 function SignUp() {
   const { register } = useAuth()
   const navigate = useNavigate()
+  const toast = useToast()
   const [nome, setNome] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -15,10 +17,22 @@ function SignUp() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!nome || !email || !password || !confirmPassword) {
-      return alert("Declare todos os campos...");
+     return toast({
+      title: 'Error ao criar conta',
+      description: "Declare todos os campos",
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+     })
     }
     if (password !== confirmPassword) {
-      return alert("As senhas não coincidem...");
+     return toast({
+      title: 'Error ao criar conta',
+      description: "As senhas não coincidem",
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+     })
     }
     register(nome, email, password);
     navigate('/')
