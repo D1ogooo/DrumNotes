@@ -19,7 +19,7 @@ normalmente existe uma vasta quantidade de conteúdos do instrumento por ai ent�
 💻 Tecnologias Utilizadas (Backend) :
 
 ```
-- Javscript
+- Javascript
 - Nodejs
 - Express
 - MongoDB
